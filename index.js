@@ -35,20 +35,18 @@ client.slashArray = [];
 const funcFiles = fs.readdirSync('./functions').filter(f => f.endsWith('.js'));
 const eventFiles = fs.readdirSync('./events').filter(f => f.endsWith('.js'));
 global.cmdFolders = fs.readdirSync('./commands');
-const slashCommandFiles = fs
-  .readdirSync('./slashcommands')
-  .filter(f => f.endsWith('.js'));
+global.slashcmdFolder = fs.readdirSync('./slashcommands');
 
 (async () => {
 
   for (file of funcFiles) require(`./functions/${file}`)(client);
 
   client.handleEvents(eventFiles);
-  client.handleCommands(cmdFolders, slashCommandFiles);
+  client.handleCommands(cmdFolders, slashcmdFolder);
 
   // CLIENT LOGIN
   mongoose.connect(process.env.mongodb, (err) => {
-    console.log(`\n[ ${cfg.v} Connecting to mongodb ] | Error: `, err || '0');
+    console.log(`\n[ Connect to mongodb ] ${cfg.v}\nError: `, err || '0');
   })
   client.login(process.env.token).catch(e => console.log(e));
 })();

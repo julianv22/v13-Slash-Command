@@ -10,11 +10,14 @@ module.exports = {
         url: cfg.youtube
       });
     }, 1000 * 60 * 5);
-    console.log(`\nLogging Client:.......`);
-    console.log('......................',);
-    console.log(client.user.tag);
-    console.log('......................',);
-    console.log(`${cfg.v} Client Ready!`); 
+    
+    console.log(`\n.---------------------------.`);
+    console.log(`|      Logging Client       |`);
+    console.log('|---------------------------|',);
+    console.log(`| ${client.user.tag}       |`);
+    console.log('|---------------------------|',);
+    console.log(`| Client Ready!          ${cfg.v} |`);
+    console.log(`'---------------------------'`);
     console.log('\n-----------------Client Started!-----------------\n')
   }
 }

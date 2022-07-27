@@ -29,18 +29,34 @@ module.exports = (client) => {
 
       // Slash Commands Handle
       const slashTable = new ascii()
-        .setHeading('📝', 'Command Name', ' ♻ ')
-        .setAlignCenter(0)
+        .setHeading('Folder', '📝', 'Command Name', ' ♻ ')
+        .setAlignCenter(1);
 
-      let i = 1;
-      for (const file of slashCommandFiles) {
-        const slashcmd = require(`../slashcommands/${file}`);
-        client.slashCommands.set(slashcmd.data.name, slashcmd);
-        client.slashArray.push(slashcmd.data.toJSON());
-        slashTable.setTitle(`Slash Commands [${i}]`);
-        slashTable.addRow(i++, slashcmd.data.name, cfg.v);
-        continue;
-      }
+      count = 0;
+      for (const folder of slashcmdFolder) {
+        const slashcmdFiles = fs.readdirSync(`./slashcommands/${folder}`)
+          .filter(f => f.endsWith('.js'));
+
+        slashTable.addRow(
+          `${cfg.folder} ${folder.toUpperCase()} [${slashcmdFiles.length}]`,
+          '-',
+          '----------',
+          cfg.folder);
+
+        let i = 1;
+        for (const file of slashcmdFiles) {
+          const slashcmd = require(`../slashcommands/${folder}/${file}`);
+          if (slashcmd.data.name) {
+            client.slashCommands.set(slashcmd.data.name, slashcmd);
+            client.slashArray.push(slashcmd.data.toJSON());
+            slashTable.addRow('', i++, slashcmd.data.name, cfg.v);
+            count++
+            continue;
+          };
+        };
+      };
+      slashTable.setTitle(`Load Slasht Commands [${count}]`);
+
       (async () => {
         const rest = new REST({ version: '9' }).setToken(process.env.token);
         console.log('\nStarted refreshing application (/) commands.\n');

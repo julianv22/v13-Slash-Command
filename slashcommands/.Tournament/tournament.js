@@ -1,5 +1,5 @@
-const serverProfile = require('../mongodb/serverProfile');
-const tournamenProfile = require('../mongodb/tournamenProfile');
+const serverProfile = require('../../mongodb/serverProfile');
+const tournamenProfile = require('../../mongodb/tournamenProfile');
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageEmbed } = require('discord.js');
 
