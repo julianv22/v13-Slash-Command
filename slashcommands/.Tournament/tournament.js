@@ -21,21 +21,21 @@ module.exports = {
     .setDescription(`Cài đặt giải đấu\n${cfg.adminRole} only`)
     .addSubcommand(sub =>
       sub.setName('open')
-        .setDescription('Mở giải đấu')
+        .setDescription(`Mở đăng ký giải đấu\n${cfg.adminRole} only`)
         .addRoleOption(opt =>
           opt.setName('ten-giai')
             .setDescription('Chọn tên giải đấu')
             .setRequired(true)))
     .addSubcommand(sub =>
       sub.setName('close')
-        .setDescription('Đóng giải đấu')
+        .setDescription(`Đóng đăng ký giải đấu\n${cfg.adminRole} only`)
         .addRoleOption(opt =>
           opt.setName('ten-giai')
             .setDescription('Chọn tên giải đấu')
             .setRequired(true)))
     .addSubcommand(sub =>
       sub.setName('list')
-        .setDescription('List danh sách thành viên tham gia giải đấu'))
+        .setDescription(`List danh sách thành viên tham gia giải đấu\n${cfg.adminRole} only`))
     .setDefaultMemberPermissions(8),
 
   async execute(interaction, client) {
@@ -75,17 +75,6 @@ module.exports = {
             ephemeral: true
           });
         setTournament(interaction, getRole, false, 'đóng');
-
-        // Set Tournament Status for member
-        // const tourList = await tournamenProfile.find({ guildName: interaction.guild.name });
-        // for (const member of tourList) {
-        //   await tournamenProfile.findOneAndUpdate(
-        //     {
-        //       guildName: member.guildName,
-        //       userID: member.userID
-        //     },
-        //     { status: false })
-        // }
         break;
       case 'list':
         if (!profile?.tourStatus)
@@ -105,7 +94,7 @@ module.exports = {
           .setFooter(`Tổng số đăng ký: [${memberList.length}]`, interaction.guild.iconURL(true))
 
         for (const member of memberList) {
-          embed.addField(member.usertag, member.ingame, true)
+          embed.addField(`\u200b`, `<@${member.userID}>\nIngame: **${member.ingame}**`, true);
         };
 
         await interaction.reply({ embeds: [embed] });
