@@ -5,10 +5,11 @@ module.exports = {
       if (message.channel.type === 'DM') return;
       if (message.author.bot) return;
       if (!message.content.startsWith(cfg.prefix)) {
-        if (message.content.toLowerCase().includes('thanks')
-          || message.content.toLowerCase().includes('thank')
-          || message.content.toLowerCase().includes('cảm ơn'))
-          message.reply(`Sử dụng \`${cfg.prefix}thanks | ${cfg.prefix}ty\` để cảm ơn người khác`);
+        const stThanks = `\`\`\`💡 | Hint: sử dụng ${cfg.prefix}thanks | ${cfg.prefix}ty để cảm ơn người khác\`\`\``;
+        if (message.content.toLowerCase().includes('thank') || message.content.toLowerCase().includes('cảm ơn'))
+          return message.reply(stThanks);
+        if (message.content.toLowerCase().includes('thanks' && !message.content.startsWith(cfg.prefix)))
+          return message.reply(stThanks);
         return;
       };
 

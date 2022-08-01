@@ -64,7 +64,7 @@ exports.execute = async (message, args, client) => {
     .addField(`Số lần được cảm ơn: [${thanksCount?.count + 1 || 1}]`, `\u200b`, true)
     .addField('Lần cuối được cảm ơn:', `${lastThanks}`, true)
     .setFooter({
-      text: `Sử dụng ${exports.name} | ${exports.aliases} để cảm ơn người khác`,
+      text: `Sử dụng ${cfg.prefix}${exports.name} | ${cfg.prefix}${exports.aliases} để cảm ơn người khác`,
       iconURL: message.guild.iconURL(true)
     })
     .setTimestamp()
