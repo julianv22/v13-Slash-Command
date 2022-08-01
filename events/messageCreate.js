@@ -4,7 +4,13 @@ module.exports = {
     try {
       if (message.channel.type === 'DM') return;
       if (message.author.bot) return;
-      if (!message.content.startsWith(cfg.prefix)) return;
+      if (!message.content.startsWith(cfg.prefix)) {
+        if (message.content.toLowerCase().includes('thanks')
+          || message.content.toLowerCase().includes('thank')
+          || message.content.toLowerCase().includes('cảm ơn'))
+          message.reply(`Sử dụng \`${cfg.prefix}thanks | ${cfg.prefix}ty\` để cảm ơn người khác`);
+        return;
+      };
 
       // Check Bot Permissions 
       const botPermission = "SEND_MESSAGES" && "MANAGE_MESSAGES" && "EMBED_LINKS" && "ADD_REACTIONS";

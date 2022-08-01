@@ -9,7 +9,9 @@ exports.ussage = `Sử dụng \`${cfg.prefix}${exports.name}\` để xem danh s�
 ${exports.description}`;
 
 exports.execute = async (message, args, client) => {
-  if (args.join(' ').trim() === '?') return client.cmdGuide(message, exports.name, exports.ussage);
+  if (args.join(' ').trim() === '?')
+    return client.cmdGuide(message, exports.name, exports.ussage);
+
   const user = message.author;
   let cmds = [];
   for (const folder of cmdFolders) {
