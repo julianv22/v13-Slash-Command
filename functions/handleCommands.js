@@ -55,7 +55,7 @@ module.exports = (client) => {
           };
         };
       };
-      slashTable.setTitle(`Load Slasht Commands [${count}]`);
+      slashTable.setTitle(`Load Slash Commands [${count}]`);
 
       (async () => {
         const rest = new REST({ version: '9' }).setToken(process.env.token);

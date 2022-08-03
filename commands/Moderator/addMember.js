@@ -1,5 +1,6 @@
 exports.name = "addmember";
 exports.aliases = ["add"];
+exports.category = "moderator";
 exports.description = `⤷\`${cfg.prefix}${exports.name}\`\n
 Alias: \`${exports.aliases}\``;
 exports.ussage = ' ';

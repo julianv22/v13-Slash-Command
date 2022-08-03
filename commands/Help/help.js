@@ -3,6 +3,7 @@ const fs = require('fs');
 
 exports.name = "help";
 exports.aliases = ["h"];
+exports.category = "help";
 exports.description = "⤷\`Đọc kỹ hướng dẫn SD trước khi dùng!\`";
 exports.ussage = `Sử dụng \`${cfg.prefix}${exports.name}\` để xem danh sách các command.\n
 \`${cfg.prefix}[tên command] ?\` để xem hướng dẫn chi tiết của command đó.\n

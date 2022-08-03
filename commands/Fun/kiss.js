@@ -2,6 +2,7 @@ const { MessageEmbed } = require("discord.js");
 
 exports.name = "kiss";
 //exports.aliases = [""];
+exports.category = "fun";
 exports.description = "⤷👄";
 exports.ussage = `**Trao hụ hôn thắm thiết cho người bạn thương 😘**
 \`${cfg.prefix}${exports.name} @tên thành viên\``;

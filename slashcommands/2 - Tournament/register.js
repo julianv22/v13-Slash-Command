@@ -16,7 +16,7 @@ module.exports = {
   //     option.setName('user')
   //         .setDescription('Người đăng ký')),
   // .setDefaultMemberPermissions(8)
-
+  category: "tournament",
   async execute(interaction, client) {
     const message = await interaction.deferReply({
       fetchReply: true

@@ -4,6 +4,7 @@ const fetch = require('node-fetch');
 
 exports.name = "github";
 exports.aliases = ["git"];
+exports.category = "information";
 exports.description = `⤷Thông tin tài khoản Github!\n\nAlias: \`${exports.aliases}\``;
 exports.ussage = `${cfg.prefix}${exports.name} <Username>`;
 
@@ -20,7 +21,7 @@ exports.execute = async (message, args, client) => {
       let { login, avatar_url, name, id, html_url, public_repos, followers, following, location, created_at, bio } = body;
 
       const embed = new MessageEmbed()
-        .setAuthor(`${login}'s Information!`, avatar_url)
+        .setAuthor('Githup Information!', avatar_url)
         .setColor(`#211F1F`)
         .setThumbnail(`${avatar_url}`)
         .addField(`Username`, `${login}`, true)

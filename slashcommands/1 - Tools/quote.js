@@ -16,6 +16,7 @@ module.exports = {
   data: new SlashCommandBuilder()
     .setName('quote')
     .setDescription('Replies with a quote from https://zenquotes.io'),
+  category: "tools",
   async execute(interaction) {
     const message = await interaction.deferReply({
       fetchReply: true

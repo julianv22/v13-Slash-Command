@@ -2,6 +2,7 @@ const { MessageEmbed } = require("discord.js")
 
 exports.name = "embed";
 exports.aliases = ["em"];
+exports.category = "moderator";
 exports.description = `**Tạo Embed message.**\n⤷Alias: \`${exports.aliases}\``;
 exports.ussage = "";
 

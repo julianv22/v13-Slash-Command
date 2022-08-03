@@ -6,6 +6,7 @@ const devs = [
 
 exports.name = "hack";
 //exports.aliases = [""];
+exports.category = "fun";
 exports.description = `⤷Hack ai đó - J4F 😝`;
 exports.ussage = `\`${cfg.prefix}${exports.name} @tên thành viên\``;
 

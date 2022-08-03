@@ -2,7 +2,8 @@ const serverProfile = require('../../mongodb/serverProfile');
 const { MessageEmbed } = require("discord.js");
 
 exports.name = "edit";
-//exports.aliases = [""]
+//exports.aliases = [""];
+exports.category = "moderator";
 exports.description = `⤷${cfg.adminRole} only\n\`${cfg.prefix}${exports.name} ?\``;
 //\nAlias: \`${exports.aliases}\``
 // exports.ussage = ""

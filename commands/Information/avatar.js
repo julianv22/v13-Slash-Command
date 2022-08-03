@@ -2,6 +2,7 @@ const { MessageEmbed } = require("discord.js");
 
 exports.name = "avatar";
 exports.aliases = ["avt"];
+exports.category = "information";
 exports.description = `⤷**Xem avatar của một người nào đó.**\n\nAlias: \`${exports.aliases}\``;
 exports.ussage = `\`${cfg.prefix}${exports.name} @tên thành viên\``;
 

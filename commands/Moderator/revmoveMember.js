@@ -1,5 +1,6 @@
 exports.name = "revmovemember";
 exports.aliases = ["rmv"];
+exports.category = "moderator";
 exports.description = `⤷\`${cfg.prefix}${exports.name}\`\n
 Alias: \`${exports.aliases}\``;
 exports.ussage = ' ';

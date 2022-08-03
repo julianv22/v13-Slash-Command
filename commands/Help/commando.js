@@ -2,6 +2,7 @@ const { MessageEmbed } = require("discord.js");
 
 exports.name = "commando";
 exports.aliases = ["cmd"];
+exports.category = "help";
 exports.description = `⤷**Danh sách Slash Command**\n\nAlias: \`${exports.aliases}\``;
 exports.ussage = `\`${cfg.prefix}${exports.name}\``;
 

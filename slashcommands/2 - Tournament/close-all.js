@@ -10,7 +10,7 @@ module.exports = {
         .setDescription('Xác nhận đóng toàn bộ giải đấu')
         .setRequired(true))
     .setDefaultMemberPermissions(8),
-
+  category: "tournament",
   async execute(interaction, client) {
     const verified = interaction.options.getBoolean('verified');
     if (!verified) return interaction.reply({

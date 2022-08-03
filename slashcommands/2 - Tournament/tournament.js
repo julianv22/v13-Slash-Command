@@ -37,7 +37,7 @@ module.exports = {
       sub.setName('list')
         .setDescription(`List danh sách thành viên tham gia giải đấu\n${cfg.adminRole} only`))
     .setDefaultMemberPermissions(8),
-
+  category: "tournament",
   async execute(interaction, client) {
     let profile = await serverProfile.findOne({ guildID: interaction.guild.id });
     if (!profile) {

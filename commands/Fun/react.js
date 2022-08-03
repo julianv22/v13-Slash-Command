@@ -1,5 +1,6 @@
 exports.name = "react";
-//exports.aliases = [""]
+//exports.aliases = [""];
+exports.category = "fun";
 exports.description = "⤷Cool! 😎";
 exports.ussage = `\`${cfg.prefix}${exports.name}\``;
 

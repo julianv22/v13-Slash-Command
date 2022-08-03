@@ -3,6 +3,7 @@ const { MessageEmbed } = require("discord.js");
 
 exports.name = "notification";
 exports.aliases = ["update", "tb"];
+exports.category = "moderator";
 exports.description = `⤷**${cfg.adminRole} only**\nAlias: \`${exports.aliases}\``;
 exports.ussage = `**Gửi thông báo lên channel thông báo:**
 \`${cfg.prefix}${exports.name} Tiêu đề | Nội dung thông báo\`\n

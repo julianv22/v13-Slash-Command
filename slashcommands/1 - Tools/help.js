@@ -6,6 +6,7 @@ module.exports = {
   data: new SlashCommandBuilder()
     .setName('help')
     .setDescription('Help command!'),
+  category: "help",
   async execute(interaction, client) {
     const user = interaction.user;
     // const joinCmd = client.commands.map(command => command.name).join(' | ');

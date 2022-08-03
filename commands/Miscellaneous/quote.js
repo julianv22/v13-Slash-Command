@@ -13,6 +13,7 @@ function getQuote() {
 
 exports.name = "quote";
 exports.aliases = ["qt"];
+exports.category = "miscellaneous";
 exports.description = `⤷Trích dẫn 1 câu trên [zenquotes](https://zenquotes.io)\n\nAlias: \`${exports.aliases}\``;
 exports.ussage = `\`${cfg.prefix}${exports.name}\``;
 

@@ -3,6 +3,7 @@ const moment = require("moment");
 
 exports.name = "whois";
 //exports.aliases = [""];
+exports.category = "information";
 exports.description = `⤷Xem thông tin thành viên (vi).`;
 exports.ussage = `\`${cfg.prefix}${exports.name} @tên thành viên\``;
 

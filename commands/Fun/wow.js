@@ -2,6 +2,7 @@ const { MessageEmbed } = require("discord.js");
 
 exports.name = "wow";
 //exports.aliases = [""];
+exports.category = "fun";
 exports.description = "⤷😍 Wow!";
 exports.ussage = `\`${cfg.prefix}${exports.name}\``;
 

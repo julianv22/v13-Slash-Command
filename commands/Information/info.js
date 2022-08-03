@@ -3,6 +3,7 @@ const moment = require("moment");
 
 exports.name = "info";
 exports.aliases = ["serverinfo", "inf"];
+exports.category = "information";
 exports.description = `⤷Alias: \`${exports.aliases}\``;
 exports.ussage = `**Xem thông tin server:**
 \`${cfg.prefix}${exports.aliases[0]}\`

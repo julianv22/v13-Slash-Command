@@ -1,5 +1,6 @@
 exports.name = "delete";
 exports.aliases = ["del", "clear"];
+exports.category = "moderator";
 exports.description = `⤷**${cfg.adminRole} only**\n\nAlias: \`${exports.aliases}\``;
 exports.ussage = `**Xoá tin nhắn hàng loạt** :
 \`${cfg.prefix}${exports.name} [số tin nhắn]\` *(0 < [số tin nhắn] < 100)*`;

@@ -1,7 +1,6 @@
 const serverProfile = require('../../mongodb/serverProfile');
 const tournamenProfile = require('../../mongodb/tournamenProfile');
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const { Permission } = require('discord.js');
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -11,7 +10,7 @@ module.exports = {
       option.setName('xacnhan')
         .setDescription('HÃY CHẮC CHẮN VỚI ĐIỀU BẠN SẮP LÀM!')
         .setRequired(true)),
-  permission: [],
+  category: "tournament",
   async execute(interaction, client) {
     const message = await interaction.deferReply({
       fetchReply: true

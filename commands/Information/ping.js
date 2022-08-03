@@ -1,5 +1,6 @@
 exports.name = "ping";
-// exports.aliases = []
+// exports.aliases = [""];
+exports.category = "information";
 exports.description = "⤷Ping Pong!";
 exports.ussage = `\`${cfg.prefix}${exports.name}\``;
 

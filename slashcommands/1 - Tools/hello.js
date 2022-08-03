@@ -8,6 +8,7 @@ module.exports = {
     .addUserOption(option =>
       option.setName('user')
         .setDescription('Which user do you want to say hello')),
+  category: "tools",
   async execute(interaction) {
     const user = interaction.options.getUser('user') || interaction.user
     await interaction.reply(`Hello ${user}!`);

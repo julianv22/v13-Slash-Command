@@ -16,6 +16,7 @@ async function replySuggest(message, msgID, stReply) {
 
 exports.name = "suggest";
 exports.aliases = ["sgt"];
+exports.category = "miscellaneous";
 exports.description = `⤷Alias: \`${exports.aliases}\``;
 exports.ussage = "";
 

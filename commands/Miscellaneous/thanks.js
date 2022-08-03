@@ -4,6 +4,7 @@ const moment = require("moment-timezone");
 
 exports.name = "thanks";
 exports.aliases = ["ty"];
+exports.category = "miscellaneous";
 exports.description = `⤷**Gửi lời cảm ơn.**\n\nAlias: \`${exports.aliases}\``;
 exports.ussage = `\`${cfg.prefix}${exports.name} @tên thành viên\``;
 

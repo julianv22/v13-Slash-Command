@@ -1,5 +1,6 @@
 exports.name = "say";
-// exports.aliases = ["cmd"]
+// exports.aliases = ["cmd"];
+exports.category = "miscellaneous";
 exports.description = "⤷🗣️ Bot chat";
 exports.ussage = `\`${cfg.prefix}${exports.name} [Nội dung]\``;
 

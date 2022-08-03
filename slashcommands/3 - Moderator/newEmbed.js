@@ -1,5 +1,5 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const { Permission, MessageEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -23,7 +23,7 @@ module.exports = {
       .setName('thumbnail')
       .setDescription(`Set Embed's Thumbnail`))
     .setDefaultMemberPermissions(8192),
-  permission: [],
+  category: "moderator",
   async execute(interaction, client) {
     const user = interaction.user
     const sTitle = interaction.options.getString('title')

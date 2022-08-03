@@ -19,7 +19,7 @@ module.exports = {
       option.setName('inline')
         .setDescription('List inline'))
     .setDefaultMemberPermissions(8192),
-  permission: [],
+  category: "moderator",
   async execute(interaction, client) {
     const message = await interaction.deferReply({
       fetchReply: true
