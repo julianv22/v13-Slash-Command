@@ -15,14 +15,16 @@ exports.execute = async (message, args, client) => {
 
   const user = message.author;
   let cmds = [];
-  for (const folder of cmdFolders) {
-    const cmdFiles = await fs.readdirSync(`./commands/${folder}`).filter(f => f.endsWith('.js'));
-    const cmd = cmdFiles.map(name => name.split('.js')[0])
+  const cmdCategories = await client.commands.map(cmd => cmd.category)
+  const catFilter = await cmdCategories.filter((item, index) => cmdCategories.indexOf(item) === index)
+
+  for (const cat of catFilter) {
+    const cmd = await client.commands.map(cmd => cmd).filter(cmd => cmd.category === cat);
     cmds.push({
-      name: `${cfg.folder} ${folder.toUpperCase()} [${cmdFiles.length}]`,
-      value: `\`\`\`${cmd.join(' | ')}\`\`\``
+      name: `${cfg.folder} ${cat.toUpperCase()} [${cmd.length}]`,
+      value: `\`\`\`${cmd.map(cmd => cmd.name).join(' | ')}\`\`\``
     })
-  }
+  };
 
   const embed = new MessageEmbed()
     .setAuthor(`Xin chào ${user.username}!`, user.displayAvatarURL(true))

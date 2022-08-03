@@ -4,7 +4,7 @@ const func = require('../../functions/subs/genEmbed');
 exports.name = "link";
 exports.aliases = ["invite"];
 exports.category = "information";
-exports.description = `⤷**Link 🔞**\n\nAlias: \`${exports.aliases}\``;
+exports.description = `⤷Link 🔞\n\nAlias: \`${exports.aliases}\``;
 exports.ussage = `\`${cfg.prefix}${exports.name}\``;
 
 exports.execute = async (message, args, client) => {

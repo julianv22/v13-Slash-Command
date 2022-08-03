@@ -3,7 +3,8 @@ const { MessageEmbed } = require("discord.js")
 exports.name = "embed";
 exports.aliases = ["em"];
 exports.category = "moderator";
-exports.description = `**Tạo Embed message.**\n⤷Alias: \`${exports.aliases}\``;
+exports.description = `Tạo Embed message.
+\n⤷Alias: \`${exports.aliases}\``;
 exports.ussage = "";
 
 exports.execute = async (message, args, client) => {

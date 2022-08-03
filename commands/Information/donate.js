@@ -3,7 +3,7 @@ const { MessageEmbed } = require("discord.js");
 exports.name = "donate";
 exports.aliases = ["ungho"];
 exports.category = "information";
-exports.description = `⤷**Ủng hộ tôi.**\n\nAlias: \`${exports.aliases}\``;
+exports.description = `⤷Ủng hộ tôi.\n\nAlias: \`${exports.aliases}\``;
 exports.ussage = `\`${cfg.prefix}${exports.name}\``;
 
 exports.execute = async (message, args, client) => {

@@ -3,7 +3,7 @@ const { SlashCommandBuilder } = require('@discordjs/builders');
 module.exports = {
   data: new SlashCommandBuilder()
     .setName('list-members')
-    .setDescription(`Return membes with role! ${cfg.modRole} only`)
+    .setDescription(`Return membes with role!\n${cfg.modRole} only`)
     .addRoleOption(option => option
       .setName('role')
       .setDescription('Select a role you wanna list')

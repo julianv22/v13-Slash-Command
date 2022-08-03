@@ -4,7 +4,8 @@ const { MessageEmbed } = require("discord.js");
 exports.name = "edit";
 //exports.aliases = [""];
 exports.category = "moderator";
-exports.description = `⤷${cfg.adminRole} only\n\`${cfg.prefix}${exports.name} ?\``;
+exports.description = `⤷${cfg.adminRole} only
+\n\`${cfg.prefix}${exports.name} ?\``;
 //\nAlias: \`${exports.aliases}\``
 // exports.ussage = ""
 exports.execute = async (message, args, client) => {
