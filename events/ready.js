@@ -11,13 +11,11 @@ module.exports = {
       });
     }, 1000 * 60 * 5);
 
-    console.log(chalk.yellowBright(`\n.---------------------------.`));
-    console.log(chalk.yellowBright(`|      `) + `Logging Client` + chalk.yellowBright(`       |`));
-    console.log(chalk.yellowBright('|---------------------------|',));
-    console.log(chalk.yellowBright(`| `) + client.user.tag + chalk.yellowBright(`       |`));
-    console.log(chalk.yellowBright('|---------------------------|',));
-    console.log(chalk.yellowBright(`| `) + chalk.green(`Client Ready!`) + chalk.yellowBright(`          ${cfg.v} |`));
-    console.log(chalk.yellowBright(`'---------------------------'`));
+    const table = new ascii()
+      .setTitle(`Logging Client`)
+      .setHeading(`${client.user.tag}\u200b\u200b`, `${cfg.v}\u200b`)      
+      .addRow(`Client Ready!`, `${cfg.v}\u200b`)
+    console.log(chalk.white(table.toString()))
     console.log(chalk.bgYellow('\n-----------------Client Started!-----------------\n'));
   }
 }

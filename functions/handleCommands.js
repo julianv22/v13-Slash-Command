@@ -17,7 +17,7 @@ module.exports = (client) => {
           const command = require(`../commands/${folder}/${file}`);
           if (command.name) {
             client.commands.set(command.name, command);
-            table.addRow('', i++, command.name, cfg.v);
+            table.addRow('', i++, command.name, `${cfg.v}\u200b`);
             count++;
             continue;
           };
@@ -47,7 +47,7 @@ module.exports = (client) => {
           if (slashcmd.data.name) {
             client.slashCommands.set(slashcmd.data.name, slashcmd);
             client.slashArray.push(slashcmd.data.toJSON());
-            slashTable.addRow('', i++, slashcmd.data.name, cfg.v);
+            slashTable.addRow('', i++, slashcmd.data.name, `${cfg.v}\u200b`);
             count++
             continue;
           };

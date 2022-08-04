@@ -9,7 +9,7 @@ module.exports = (client) => {
         if (event.once) client.once(event.name, (...args) => event.execute(...args, client));
         else client.on(event.name, (...args) => event.execute(...args, client,));
         table.setTitle(`Load Events [${i}]`);
-        table.addRow(i++, event.name, cfg.v);
+        table.addRow(i++, event.name, `${cfg.v}\u200b`);
         continue;
       }
       console.log(chalk.bgYellow('\n-----------------Starting Client-----------------\n'));

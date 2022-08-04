@@ -36,8 +36,8 @@ client.commands = new Collection();
 client.slashCommands = new Collection();
 client.slashArray = [];
 
-const funcFiles = fs.readdirSync('./functions').filter(f => f.endsWith('.js'));
-const eventFiles = fs.readdirSync('./events').filter(f => f.endsWith('.js'));
+global.funcFiles = fs.readdirSync('./functions').filter(f => f.endsWith('.js'));
+global.eventFiles = fs.readdirSync('./events').filter(f => f.endsWith('.js'));
 global.cmdFolders = fs.readdirSync('./commands');
 global.slashcmdFolder = fs.readdirSync('./slashcommands');
 
