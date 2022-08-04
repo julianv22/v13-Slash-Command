@@ -1,6 +1,5 @@
 const serverThanks = require('../../mongodb/thanksProfile');
 const { MessageEmbed } = require("discord.js");
-const moment = require("moment-timezone");
 
 exports.name = "thanks";
 exports.aliases = ["ty"];

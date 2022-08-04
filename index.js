@@ -9,13 +9,17 @@ app.listen(3000, () => {
   console.log('Express app started!');
 });
 
-const mongoose = require('mongoose');
+global.mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
+global.ascii = require('ascii-table');
+global.chalk = require('chalk');
+global.moment = require("moment");
+global.fetch = require('node-fetch');
 global.cfg = require('./config.json');
-const fs = require('fs');
-const { Client, Collection, Intents } = require('discord.js');
+global.fs = require('fs');
 
+const { Client, Collection, Intents } = require('discord.js');
 const client = new Client({
   intents: 32767,
   partials: [
@@ -46,7 +50,7 @@ global.slashcmdFolder = fs.readdirSync('./slashcommands');
 
   // CLIENT LOGIN
   mongoose.connect(process.env.mongodb, (err) => {
-    console.log(`\n[ Connect to mongodb ] ${cfg.v}\nError: `, err || '0');
+    console.log(chalk.green(`\n${cfg.v} [ Connected to mongodb ]`) + chalk.red(`\n${cfg.x} Error: `, err || '0'));
   })
   client.login(process.env.token).catch(e => console.log(e));
 })();

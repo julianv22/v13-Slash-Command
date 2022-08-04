@@ -1,5 +1,3 @@
-const ascii = require('ascii-table');
-
 module.exports = (client) => {
   client.handleEvents = async (eventFiles) => {
     try {
@@ -14,8 +12,8 @@ module.exports = (client) => {
         table.addRow(i++, event.name, cfg.v);
         continue;
       }
-      console.log('\n-----------------Starting Client-----------------\n')
-      console.log(table.toString())
+      console.log(chalk.bgYellow('\n-----------------Starting Client-----------------\n'));
+      console.log(table.toString());
     } catch (e) {
       console.log(e);
     }

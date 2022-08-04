@@ -1,5 +1,4 @@
 const { MessageEmbed } = require("discord.js");
-const fs = require('fs');
 
 exports.name = "help";
 exports.aliases = ["h"];

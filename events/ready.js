@@ -10,14 +10,14 @@ module.exports = {
         url: cfg.youtube
       });
     }, 1000 * 60 * 5);
-    
-    console.log(`\n.---------------------------.`);
-    console.log(`|      Logging Client       |`);
-    console.log('|---------------------------|',);
-    console.log(`| ${client.user.tag}       |`);
-    console.log('|---------------------------|',);
-    console.log(`| Client Ready!          ${cfg.v} |`);
-    console.log(`'---------------------------'`);
-    console.log('\n-----------------Client Started!-----------------\n')
+
+    console.log(chalk.yellowBright(`\n.---------------------------.`));
+    console.log(chalk.yellowBright(`|      `) + `Logging Client` + chalk.yellowBright(`       |`));
+    console.log(chalk.yellowBright('|---------------------------|',));
+    console.log(chalk.yellowBright(`| `) + client.user.tag + chalk.yellowBright(`       |`));
+    console.log(chalk.yellowBright('|---------------------------|',));
+    console.log(chalk.yellowBright(`| `) + chalk.green(`Client Ready!`) + chalk.yellowBright(`          ${cfg.v} |`));
+    console.log(chalk.yellowBright(`'---------------------------'`));
+    console.log(chalk.bgYellow('\n-----------------Client Started!-----------------\n'));
   }
 }

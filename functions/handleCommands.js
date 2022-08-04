@@ -1,7 +1,5 @@
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v9');
-const fs = require('fs');
-const ascii = require('ascii-table');
 
 module.exports = (client) => {
   client.handleCommands = (cmdFolders, slashCommandFiles) => {
