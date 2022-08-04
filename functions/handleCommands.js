@@ -6,12 +6,18 @@ module.exports = (client) => {
     try {
       // Commands Handle      
       const table = new ascii()
-        .setHeading('Folder', '📝', 'Command Name', ' ♻ ')
-        .setAlignCenter(1);
+        .setHeading('Folder', '📝', 'Command Name', ' ♻ ').setAlignCenter(1);
+      
       let count = 0;
       for (const folder of cmdFolders) {
         const cmdFiles = fs.readdirSync(`./commands/${folder}`).filter(f => f.endsWith('.js'));
-        table.addRow(`${cfg.folder} ${folder.toUpperCase()} [${cmdFiles.length}]`, '-', '----------', cfg.folder);
+        
+        table.addRow(
+          `${cfg.folder} ${folder.toUpperCase()} [${cmdFiles.length}]`,
+          '-',
+          '----------',
+          cfg.folder);
+
         let i = 1;
         for (const file of cmdFiles) {
           const command = require(`../commands/${folder}/${file}`);
@@ -27,8 +33,7 @@ module.exports = (client) => {
 
       // Slash Commands Handle
       const slashTable = new ascii()
-        .setHeading('Folder', '📝', 'Command Name', ' ♻ ')
-        .setAlignCenter(1);
+        .setHeading('Folder', '📝', 'Command Name', ' ♻ ').setAlignCenter(1);
 
       count = 0;
       for (const folder of slashcmdFolder) {
