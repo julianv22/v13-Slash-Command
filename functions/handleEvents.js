@@ -3,7 +3,7 @@ module.exports = (client) => {
     try {
       // Events Handle              
       const eventTable = new ascii()
-        .setHeading('Folder', 'Event Name', ' ♻ ')
+        .setHeading('Folder', 'Event Name', '♻')
 
       let count = 0;
       for (const folder of eventFolders) {
@@ -24,19 +24,10 @@ module.exports = (client) => {
           continue;
         }
       };
-      eventTable.setTitle(`Load Events [${count}]`);
+      eventTable.setTitle(`Load Events [${count}]`);     
 
-      eventTable.setTitle(`Load Events [${count}]`);
-
-      const funcTable = new ascii()
-        .setTitle(`Load Functions [${funcFiles.length}]`)
-        .setHeading('Function', ' ♻ ');
-      for (const file of funcFiles)
-        funcTable.addRow(file.split('.js')[0], `${cfg.v}\u200b`);
-
-      console.log(chalk.bgWhite('\n-----------------Starting Client-----------------\n'));
-      console.log(eventTable.toString());
-      console.log(funcTable.toString());
+      console.log(chalk.bgYellow('\n-----------------Starting Client-----------------\n'));
+      console.log(eventTable.toString());      
     } catch (e) {
       console.log(e);
     }

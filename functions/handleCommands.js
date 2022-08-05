@@ -6,7 +6,7 @@ module.exports = (client) => {
     try {
       // Commands Handle      
       const table = new ascii()
-        .setHeading('Folder', '📝', 'Command Name', ' ♻ ').setAlignCenter(1);
+        .setHeading('Folder', '📝', 'Command Name', '♻').setAlignCenter(1);
       
       let count = 0;
       for (const folder of cmdFolders) {
@@ -33,7 +33,7 @@ module.exports = (client) => {
 
       // Slash Commands Handle
       const slashTable = new ascii()
-        .setHeading('Folder', '📝', 'Command Name', ' ♻ ').setAlignCenter(1);
+        .setHeading('Folder', '📝', 'Command Name', '♻').setAlignCenter(1);
 
       count = 0;
       for (const folder of slashcmdFolder) {
