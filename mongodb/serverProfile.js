@@ -5,6 +5,8 @@ const serverProfile = new mongoose.Schema({
   reportChannel: { type: String },
   updateChannel: { type: String },
   suggestChannel: { type: String },
+  welomeChannel: { type: String },
+  logChannel: { type: String },
   tourStatus: { type: Boolean },
   tourID: { type: String },
   tourName: { type: String },

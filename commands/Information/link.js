@@ -1,5 +1,4 @@
 const { MessageEmbed } = require("discord.js")
-const func = require('../../functions/subs/genEmbed');
 
 exports.name = "link";
 exports.aliases = ["invite"];
@@ -21,6 +20,6 @@ exports.execute = async (message, args, client) => {
   ];
   message.channel.send('Owner Discord: https://discord.gg/24GPY9CmY4')
     .then(msg => {
-      msg.edit({ embeds: func.genEmbed(message, stArr) });
+      msg.edit({ embeds: client.genEmbed(message, stArr) });
     });
 }

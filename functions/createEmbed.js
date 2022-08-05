@@ -1,5 +1,4 @@
 const { MessageEmbed } = require("discord.js");
-const func = require('./subs/checkURL');
 
 function addFields(name, value, inline) {
   this.name = name;
@@ -21,8 +20,8 @@ module.exports = (client) => {
         .setColor(cfg.embedcolor)
         .setTimestamp()
       if (args[2]) embed.setFooter(args[2], message.guild.iconURL(true));
-      if (func.checkURL(args[3])) embed.setThumbnail(args[3]);
-      if (func.checkURL(args[4])) embed.setImage(args[4]);
+      if (client.checkURL(args[3])) embed.setThumbnail(args[3]);
+      if (client.checkURL(args[4])) embed.setImage(args[4]);
       if (args[5]) { // addFields
         const arrays = args[5].split(' # ');
         const fields = arrays.map(f => f.split(' ^ '));
