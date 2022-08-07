@@ -6,10 +6,11 @@ const serverProfile = new mongoose.Schema({
   updateChannel: { type: String },
   suggestChannel: { type: String },
   welomeChannel: { type: String },
+  welomeMessage: { type: String },
   logChannel: { type: String },
-  tourStatus: { type: Boolean },
   tourID: { type: String },
   tourName: { type: String },
+  tourStatus: { type: Boolean },
 });
 
 module.exports = mongoose.model('serverProfile', serverProfile, `serverProfile [${cfg.botID}]`);
