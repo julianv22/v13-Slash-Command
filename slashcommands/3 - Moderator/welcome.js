@@ -77,12 +77,12 @@ module.exports = {
 
         info = [
           {
-            name: "Welcome channel",
+            name: "Welcome channel:",
             value: welcomeChannel.toString(),
             inline: true,
           },
           {
-            name: "Log channel",
+            name: "Log channel:",
             value: logChannel.toString(),
             inline: true,
           },
@@ -106,19 +106,19 @@ module.exports = {
 
         info = [
           {
-            name: "Welcome channel",
+            name: "Welcome channel:",
             value: fieldValues[0],
             inline: true,
           },
           {
-            name: "Log channel",
+            name: "Log channel:",
             value: fieldValues[1],
             inline: true,
           },
         ];
 
         if (msgInfo)
-          info.push({ name: `Server's Information`, value: msgInfo });
+          info.push({ name: `Server's Information:`, value: msgInfo });
 
         embed.addFields(info);
         interaction.reply({ embeds: [embed], ephemeral: true });
