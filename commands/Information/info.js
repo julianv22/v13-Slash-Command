@@ -4,14 +4,14 @@ exports.name = "info";
 exports.aliases = ["serverinfo", "inf"];
 exports.category = "information";
 exports.description = `⤷Alias: \`${exports.aliases}\``;
-exports.ussage = `**Xem thông tin server:**
+exports.usage = `**Xem thông tin server:**
 \`${cfg.prefix}${exports.aliases[0]}\`
 \n**Xem thông tin của thành viên:**
 \`${cfg.prefix}${exports.name} @tên thành viên\``;
 
 exports.execute = async (message, args, client) => {
   const msg = args.join(' ');
-  if (msg.trim() === '?') return client.cmdGuide(message, exports.name, exports.description, exports.ussage);
+  if (msg.trim() === '?') return client.cmdGuide(message, exports.name, exports.description, exports.usage);
 
   if (!msg) {
     let guild = message.guild;

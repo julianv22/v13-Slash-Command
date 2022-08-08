@@ -14,11 +14,12 @@ function getQuote() {
 exports.name = "quote";
 exports.aliases = ["qt"];
 exports.category = "miscellaneous";
+exports.cooldown = 10;
 exports.description = `⤷Trích dẫn 1 câu trên [zenquotes](https://zenquotes.io)\n\nAlias: \`${exports.aliases}\``;
-exports.ussage = `\`${cfg.prefix}${exports.name}\``;
+exports.usage = `\`${cfg.prefix}${exports.name}\``;
 
 exports.execute = async (message, args, client) => {
-  if (args.join(' ').trim() === '?') return client.cmdGuide(message, exports.name, exports.description, exports.ussage);
+  if (args.join(' ').trim() === '?') return client.cmdGuide(message, exports.name, exports.description, exports.usage);
   getQuote().then(quote => {
     const user = message.author
     const embed = new MessageEmbed()

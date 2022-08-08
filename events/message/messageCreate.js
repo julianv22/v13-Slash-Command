@@ -1,3 +1,5 @@
+const { Collection } = require("discord.js");
+
 module.exports = {
   name: 'messageCreate',
   async execute(message, client) {
@@ -26,6 +28,28 @@ module.exports = {
         client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(cmdName));
 
       if (!command) return message.reply(`\`\`\`❌ | Command [${cmdName}] không chính xác hoặc không tồn tại!\`\`\``);
+
+      // Start Command Cooldown
+      if (!client.cooldowns.has(command.name))
+        client.cooldowns.set(command.name, new Collection());
+
+      const now = Date.now();
+      const timeStamp = client.cooldowns.get(command.name);
+      const amount = (command.cooldown || 3) * 1000;
+
+      if (timeStamp.has(message.author.id)) {
+        const exprTime = timeStamp.get(message.author.id) + amount;
+        if (now < exprTime) {
+          const timeLeft = (exprTime - now) / 1000;
+          return message.reply(
+            `\`\`\`❌ | Tôi mệt rồi! Vui lòng chờ ${timeLeft.toFixed(1)}s để sử dụng tiếp command [${command.name}]\`\`\``
+          );
+        }
+      }
+
+      timeStamp.set(message.author.id, now);
+      setTimeout(() => timeStamp.delete(message.author.id), amount);
+      // End Command Colldown
 
       await command.execute(message, args, client);
     } catch (error) {

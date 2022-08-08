@@ -17,6 +17,7 @@ module.exports = {
     .setName('quote')
     .setDescription('Replies with a quote from https://zenquotes.io'),
   category: "tools",
+  cooldown: 10,
   async execute(interaction) {
     const message = await interaction.deferReply({
       fetchReply: true

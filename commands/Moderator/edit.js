@@ -7,7 +7,7 @@ exports.category = "moderator";
 exports.description = `⤷${cfg.adminRole} only
 \n\`${cfg.prefix}${exports.name} ?\``;
 //\nAlias: \`${exports.aliases}\``
-// exports.ussage = ""
+exports.usage = ""
 exports.execute = async (message, args, client) => {
   const isAdmin = message.member.permissions.has("ADMINISTRATOR");
   if (!isAdmin)

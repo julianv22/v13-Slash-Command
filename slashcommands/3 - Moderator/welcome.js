@@ -5,7 +5,7 @@ const serverProfile = require("../../mongodb/serverProfile");
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("welcome")
-    .setDescription("Setup welcome channel!")
+    .setDescription(`Setup welcome channel!\n${cfg.adminRole} only`)
     .addSubcommand((sub) =>
       sub
         .setName("setup")

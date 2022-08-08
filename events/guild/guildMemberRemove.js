@@ -19,7 +19,7 @@ module.exports = {
           { name: "UserName:", value: member.user.username, inline: true },
           { name: "UserID:", value: member.user.id, inline: true },
         );
-      await message.guild.channels.cache.get(logID).send({ embeds: [emLog] });
+      // await message.guild.channels.cache.get(logID).send({ embeds: [emLog] });
 
       console.log(chalk.yellow(member.user.tag + " left the server"));
     } catch (error) {

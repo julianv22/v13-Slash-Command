@@ -18,7 +18,7 @@ exports.name = "suggest";
 exports.aliases = ["sgt"];
 exports.category = "miscellaneous";
 exports.description = `⤷Alias: \`${exports.aliases}\``;
-exports.ussage = "";
+exports.usage = "";
 
 exports.execute = async (message, args, client) => {
   const sgtSet = args.join(' ').split(' ');

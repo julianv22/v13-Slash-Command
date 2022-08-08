@@ -31,9 +31,7 @@ module.exports = {
       if (profile?.welomeMessage)
         embWelcome.addField(`Server's Information:`, profile?.welomeMessage);
 
-      await message.guild.channels.cache
-        .get(welcomeID)
-        .send({ embeds: [embWelcome] });
+      // await message.guild.channels.cache.get(welcomeID).send({ embeds: [embWelcome] });
 
       const emLog = new MessageEmbed()
         .setAuthor(message.guild.name, message.guild.iconURL(true))
@@ -58,7 +56,7 @@ module.exports = {
           }
         );
 
-      await message.guild.channels.cache.get(logID).send({ embeds: [emLog] });
+      // await message.guild.channels.cache.get(logID).send({ embeds: [emLog] });
 
       console.log(chalk.yellow(member.user.tag + " joined the server"));
     } catch (error) {

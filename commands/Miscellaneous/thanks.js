@@ -5,11 +5,12 @@ const moment = require('moment-timezone');
 exports.name = "thanks";
 exports.aliases = ["ty"];
 exports.category = "miscellaneous";
+exports.cooldown = 30;
 exports.description = `⤷Gửi lời cảm ơn.\n\nAlias: \`${exports.aliases}\``;
-exports.ussage = `\`${cfg.prefix}${exports.name} @tên thành viên\``;
+exports.usage = `\`${cfg.prefix}${exports.name} @tên thành viên\``;
 
 exports.execute = async (message, args, client) => {
-  if (args.join(' ').trim() === '?') return client.cmdGuide(message, exports.name, exports.description, exports.ussage);
+  if (args.join(' ').trim() === '?') return client.cmdGuide(message, exports.name, exports.description, exports.usage);
 
   const imgURL = [
     "https://cdn.discordapp.com/attachments/976364997066231828/987822146279587850/unknown.png",

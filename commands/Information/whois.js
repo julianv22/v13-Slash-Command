@@ -4,10 +4,10 @@ exports.name = "whois";
 //exports.aliases = [""];
 exports.category = "information";
 exports.description = `⤷Xem thông tin thành viên (vi).`;
-exports.ussage = `\`${cfg.prefix}${exports.name} @tên thành viên\``;
+exports.usage = `\`${cfg.prefix}${exports.name} @tên thành viên\``;
 
 exports.execute = async (message, args, client) => {
-  if (args.join(' ').trim() === '?') return client.cmdGuide(message, exports.name, exports.description, exports.ussage);
+  if (args.join(' ').trim() === '?') return client.cmdGuide(message, exports.name, exports.description, exports.usage);
 
   let user = message.mentions.users.first() || message.author;
   let member = message.mentions.members.first();

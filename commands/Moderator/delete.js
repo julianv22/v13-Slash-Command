@@ -3,7 +3,7 @@ exports.aliases = ["del", "clear"];
 exports.category = "moderator";
 exports.description = `⤷${cfg.adminRole} only
 \nAlias: \`${exports.aliases}\``;
-exports.ussage = `**Xoá tin nhắn hàng loạt** :
+exports.usage = `**Xoá tin nhắn hàng loạt** :
 \`${cfg.prefix}${exports.name} [số tin nhắn]\` *(0 < [số tin nhắn] < 100)*`;
 
 exports.execute = async (message, args, client) => {
@@ -11,7 +11,7 @@ exports.execute = async (message, args, client) => {
   if (!isAdmin) return message.reply(`\`\`\`${cfg.x} | Bạn không phải ${cfg.adminRole} để sử dụng command này!\`\`\``);
 
   if (args.join(' ').trim() === '?' && isAdmin)
-    return client.cmdGuide(message, exports.name, exports.description, exports.ussage, 'Không thể xoá tin nhắn cũ hơn 14 ngày.');
+    return client.cmdGuide(message, exports.name, exports.description, exports.usage, 'Không thể xoá tin nhắn cũ hơn 14 ngày.');
 
   const user = message.member;
   if (!args[0] || isNaN(args[0])) return message.reply(`\`\`\`❌ | Hãy nhập số lượng tin nhắn muốn xoá\`\`\``);

@@ -4,11 +4,11 @@ exports.name = "kiss";
 //exports.aliases = [""];
 exports.category = "fun";
 exports.description = "⤷👄";
-exports.ussage = `**Trao hụ hôn thắm thiết cho người bạn thương 😘**
+exports.usage = `**Trao hụ hôn thắm thiết cho người bạn thương 😘**
 \`${cfg.prefix}${exports.name} @tên thành viên\``;
 
 exports.execute = async (message, args, client) => {
-  if (args.join(' ').trim() === '?') return client.cmdGuide(message, exports.name, '', exports.ussage);
+  if (args.join(' ').trim() === '?') return client.cmdGuide(message, exports.name, '', exports.usage);
 
   let user = message.mentions.members.first();
   if (!user)

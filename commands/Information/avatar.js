@@ -4,10 +4,10 @@ exports.name = "avatar";
 exports.aliases = ["avt"];
 exports.category = "information";
 exports.description = `⤷Xem avatar của một người nào đó.\n\nAlias: \`${exports.aliases}\``;
-exports.ussage = `\`${cfg.prefix}${exports.name} @tên thành viên\``;
+exports.usage = `\`${cfg.prefix}${exports.name} @tên thành viên\``;
 
 exports.execute = async (message, args, client) => {
-  if (args.join(' ').trim() === '?') return client.cmdGuide(message, exports.name, exports.description, exports.ussage);
+  if (args.join(' ').trim() === '?') return client.cmdGuide(message, exports.name, exports.description, exports.usage);
   const user =
     message.mentions.users.first() ||
     message.guild.members.cache.get(args[0]) ||

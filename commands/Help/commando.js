@@ -4,10 +4,10 @@ exports.name = "commando";
 exports.aliases = ["cmd"];
 exports.category = "help";
 exports.description = `⤷Danh sách Slash Command\n\nAlias: \`${exports.aliases}\``;
-exports.ussage = `\`${cfg.prefix}${exports.name}\``;
+exports.usage = `\`${cfg.prefix}${exports.name}\``;
 
 exports.execute = async (message, args, client) => {
-  if (args.join(' ').trim() === '?') return client.cmdGuide(message, exports.name, exports.description, exports.ussage);
+  if (args.join(' ').trim() === '?') return client.cmdGuide(message, exports.name, exports.description, exports.usage);
 
   let slashCmd = [];
   const cmdCategories = await client.slashCommands.map(cmd => cmd.category)

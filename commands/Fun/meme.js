@@ -3,12 +3,13 @@ const { MessageEmbed } = require("discord.js");
 exports.name = "meme";
 //exports.aliases = [""];
 exports.category = "fun";
+exports.cooldown = 5;
 exports.description = "⤷Gửi một meme!";
-exports.ussage = `\`${cfg.prefix}${exports.name}\``;
+exports.usage = `\`${cfg.prefix}${exports.name}\``;
 
 exports.execute = async (message, args, client) => {
   if (args.join(' ').trim() === '?')
-    return client.cmdGuide(message, exports.name, exports.description, exports.ussage);
+    return client.cmdGuide(message, exports.name, exports.description, exports.usage);
   //Start
   const Reds = [
     "memes",

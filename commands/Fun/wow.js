@@ -4,11 +4,11 @@ exports.name = "wow";
 //exports.aliases = [""];
 exports.category = "fun";
 exports.description = "⤷😍 Wow!";
-exports.ussage = `\`${cfg.prefix}${exports.name}\``;
+exports.usage = `\`${cfg.prefix}${exports.name}\``;
 
 exports.execute = async (message, args, client) => {
 
-  if (args.join(' ').trim() === '?') return client.cmdGuide(message, exports.name, exports.description, exports.ussage);
+  if (args.join(' ').trim() === '?') return client.cmdGuide(message, exports.name, exports.description, exports.usage);
 
   const embed = new MessageEmbed()
     .setAuthor(message.author.username, message.author.displayAvatarURL(true))

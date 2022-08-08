@@ -6,7 +6,7 @@ exports.aliases = ["update", "tb"];
 exports.category = "moderator";
 exports.description = `⤷${cfg.adminRole} only
 \nAlias: \`${exports.aliases}\``;
-exports.ussage = `**Gửi thông báo lên channel thông báo:**
+exports.usage = `**Gửi thông báo lên channel thông báo:**
 \`${cfg.prefix}${exports.name} Tiêu đề | Nội dung thông báo\`\n
 **Set channel thông báo:**
 \`${cfg.prefix}${exports.name} set [Channel ID]\``;
@@ -33,7 +33,7 @@ exports.execute = async (message, args, client) => {
     message,
     exports.name,
     exports.description,
-    exports.ussage + `\n\n**Channel gửi thông báo:** ${rpChannel}`,
+    exports.usage + `\n\n**Channel gửi thông báo:** ${rpChannel}`,
     'Tuỳ chọn: Title | Description | Thumbnail (1/0) | Footer (Send by...)'
   );
 

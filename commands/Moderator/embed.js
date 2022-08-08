@@ -5,7 +5,7 @@ exports.aliases = ["em"];
 exports.category = "moderator";
 exports.description = `Tạo Embed message.
 \n⤷Alias: \`${exports.aliases}\``;
-exports.ussage = "";
+exports.usage = "";
 
 exports.execute = async (message, args, client) => {
   const isMod = message.member.permissions.has("MANAGE_MESSAGES");
