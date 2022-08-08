@@ -6,7 +6,7 @@ module.exports = {
   data: new SlashCommandBuilder()
     .setName('help')
     .setDescription('Help command!'),
-  category: "tools",
+  category: "help",
   async execute(interaction, client) {
     const user = interaction.user;    
     let cmds = [];
@@ -23,7 +23,7 @@ module.exports = {
 
     const embed = new MessageEmbed()
       .setAuthor(`Hello ${user.tag}!`, user.displayAvatarURL(true))
-      .setTitle('There is some commands may be you need')
+      .setTitle('There is some commands may be you need!')
       .setDescription(`I you need some help, join my support server: [\`🎭〔J-V Bot〕 SUPPORT\`](https://discord.gg/dyd8DXbrVq)`)
       .setColor("RANDOM")
       .setThumbnail(cfg.helpPNG)

@@ -3,6 +3,7 @@ const { MessageEmbed } = require('discord.js');
 
 module.exports = {
   data: new SlashCommandBuilder()
+    .setDefaultMemberPermissions(8192)
     .setName('new-embed')
     .setDescription(`Create a simple embed\n${cfg.modRole} only)`)
     .addStringOption(option => option
@@ -17,12 +18,11 @@ module.exports = {
       .setName('footer')
       .setDescription(`Embed's Footer`))
     .addAttachmentOption(option => option
-        .setName('image')
-        .setDescription(`Set Embed's Image`))
+      .setName('image')
+      .setDescription(`Set Embed's Image`))
     .addAttachmentOption(option => option
       .setName('thumbnail')
-      .setDescription(`Set Embed's Thumbnail`))
-    .setDefaultMemberPermissions(8192),
+      .setDescription(`Set Embed's Thumbnail`)),
   category: "moderator",
   async execute(interaction, client) {
     const user = interaction.user

@@ -3,13 +3,13 @@ const tournamenProfile = require('../../mongodb/tournamenProfile');
 
 module.exports = {
   data: new SlashCommandBuilder()
+    .setDefaultMemberPermissions(8)
     .setName('close-all-tour')
     .setDescription(`Đóng toàn bộ giải đấu\n${cfg.adminRole} only`)
     .addBooleanOption(opt =>
       opt.setName('verified')
         .setDescription('Xác nhận đóng toàn bộ giải đấu')
-        .setRequired(true))
-    .setDefaultMemberPermissions(8),
+        .setRequired(true)),
   category: "tournament",
   async execute(interaction, client) {
     const verified = interaction.options.getBoolean('verified');

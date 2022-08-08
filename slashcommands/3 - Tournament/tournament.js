@@ -17,6 +17,7 @@ async function setTournament(interaction, getRole, isOpen, stStatus) {
 
 module.exports = {
   data: new SlashCommandBuilder()
+    .setDefaultMemberPermissions(8)
     .setName('giai-dau')
     .setDescription(`Cài đặt giải đấu\n${cfg.adminRole} only`)
     .addSubcommand(sub =>
@@ -35,8 +36,7 @@ module.exports = {
             .setRequired(true)))
     .addSubcommand(sub =>
       sub.setName('list')
-        .setDescription(`List danh sách thành viên tham gia giải đấu\n${cfg.adminRole} only`))
-    .setDefaultMemberPermissions(8),
+        .setDescription(`List danh sách thành viên tham gia giải đấu\n${cfg.adminRole} only`)),
   category: "tournament",
   async execute(interaction, client) {
     let profile = await serverProfile.findOne({ guildID: interaction.guild.id });

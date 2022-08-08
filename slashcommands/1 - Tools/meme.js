@@ -5,7 +5,7 @@ module.exports = {
   data: new SlashCommandBuilder()
     .setName('meme')
     .setDescription('Replies with a meme!'),
-  category: "funny",
+  category: "tools",
   cooldown: 10,
   async execute(interaction) {
     //Start

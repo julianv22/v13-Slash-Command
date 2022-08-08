@@ -4,12 +4,13 @@ const serverProfile = require("../../mongodb/serverProfile");
 
 module.exports = {
   data: new SlashCommandBuilder()
+    .setDefaultMemberPermissions(8)
     .setName("welcome")
     .setDescription(`Setup welcome channel!\n${cfg.adminRole} only`)
     .addSubcommand((sub) =>
       sub
         .setName("setup")
-        .setDescription("Setup Welcome Channel and Log Channel")
+        .setDescription(`Setup Welcome Channel and Log Channel ${cfg.adminRole} only`)
         .addChannelOption((opt) =>
           opt
             .setName("welcome")
@@ -21,17 +22,16 @@ module.exports = {
         )
     )
     .addSubcommand((sub) =>
-      sub.setName("info").setDescription("Show Welcome's setup information")
+      sub.setName("info").setDescription(`Show Welcome's setup information ${cfg.adminRole} only`)
     )
     .addSubcommand((sub) =>
       sub
         .setName("message")
-        .setDescription("Set welcome message")
+        .setDescription(`Set welcome message ${cfg.adminRole} only`)
         .addStringOption((opt) =>
           opt.setName("message").setDescription("Input your welcome message")
         )
-    )
-    .setDefaultMemberPermissions(8),
+    ),
   category: "moderator",
   async execute(interaction, client) {
     let profile = await serverProfile.findOne({

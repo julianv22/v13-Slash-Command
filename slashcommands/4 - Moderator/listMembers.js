@@ -2,6 +2,7 @@ const { SlashCommandBuilder } = require('@discordjs/builders');
 
 module.exports = {
   data: new SlashCommandBuilder()
+    .setDefaultMemberPermissions(8192)
     .setName('list-members')
     .setDescription(`Return membes with role!\n${cfg.modRole} only`)
     .addRoleOption(option => option
@@ -17,8 +18,7 @@ module.exports = {
       .setDescription('Description'))
     .addBooleanOption(option =>
       option.setName('inline')
-        .setDescription('List inline'))
-    .setDefaultMemberPermissions(8192),
+        .setDescription('List inline')),
   category: "moderator",
   async execute(interaction, client) {
     const message = await interaction.deferReply({
