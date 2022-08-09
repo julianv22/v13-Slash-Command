@@ -16,7 +16,7 @@ module.exports = {
       .setHeading('Client', `Functions [${funcFiles.length}]`, '♻')
 
     table.addRow(`${client.user.tag}\u200b\u200b`, '', `${cfg.v}\u200b`);
-    
+
     for (const file of funcFiles)
       table.addRow('', file.split('.js')[0], `${cfg.v}\u200b`);
 
@@ -24,5 +24,9 @@ module.exports = {
 
     console.log(table.toString());
     console.log(chalk.bgYellow('\n-----------------Client Started!-----------------\n'));
+
+    // Server Stats
+    client.serverStats(client);
+    setInterval(() => { client.serverStats(client); }, 5 * 60 * 1000);
   }
 }
