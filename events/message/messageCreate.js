@@ -7,11 +7,18 @@ module.exports = {
       if (message.channel.type === 'DM') return;
       if (message.author.bot) return;
       if (!message.content.startsWith(cfg.prefix)) {
-        const stThanks = `\`\`\`💡 | Hint: sử dụng ${cfg.prefix}thanks | ${cfg.prefix}ty để cảm ơn người khác\`\`\``;
-        if (message.content.toLowerCase().includes('thank') || message.content.toLowerCase().includes('cảm ơn'))
-          return message.reply(stThanks);
-        if (message.content.toLowerCase().includes('thanks' && !message.content.startsWith(cfg.prefix)))
-          return message.reply(stThanks);
+        const thanksMSG = `\`\`\`💡 | Hint: sử dụng ${cfg.prefix}thanks | ${cfg.prefix}ty để cảm ơn người khác\`\`\``;
+        const thanks = ["cảm ơn", "thank", "ty"];
+        thanks.forEach((msg) => {
+          if (message.content.toLowerCase().includes(msg))
+            return message.reply(thanksMSG);
+        });
+        if (
+          message.content
+            .toLowerCase()
+            .includes("thanks" && !message.content.startsWith(cfg.prefix))
+        )
+          return message.reply(thanksMSG);
         return;
       };
 

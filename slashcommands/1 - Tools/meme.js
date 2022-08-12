@@ -6,7 +6,7 @@ module.exports = {
     .setName('meme')
     .setDescription('Replies with a meme!'),
   category: "tools",
-  cooldown: 10,
+  cooldown: 30,
   async execute(interaction) {
     //Start
     const Reds = [

@@ -3,7 +3,7 @@ const { MessageEmbed } = require("discord.js");
 exports.name = "meme";
 //exports.aliases = [""];
 exports.category = "fun";
-exports.cooldown = 5;
+exports.cooldown = 30;
 exports.description = "⤷Gửi một meme!";
 exports.usage = `\`${cfg.prefix}${exports.name}\``;
 
