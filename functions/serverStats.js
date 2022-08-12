@@ -57,7 +57,7 @@ module.exports = (client) => {
       setChannelName(status_ChannelID, stStatus);
       // End Server Stats
     } catch (e) {
-      console.error(e);
+      console.error(chalk.yellow("serverStats: "), e);
     }
   }
 }

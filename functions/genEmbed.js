@@ -43,8 +43,8 @@ module.exports = (client) => {
         res[0].fields = objFields
       }
       return res
-    } catch (err) {
-      console.error(err)
+    } catch (e) {
+      console.error(chalk.yellow("genEmbed: "), e)
     }
   };
 }

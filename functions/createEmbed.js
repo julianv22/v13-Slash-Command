@@ -47,7 +47,7 @@ module.exports = (client) => {
           break;
       }
     } catch (e) {
-      console.error(e);
+      console.error(chalk.yellow("createEmbed: "), e);
     }
   }
 }

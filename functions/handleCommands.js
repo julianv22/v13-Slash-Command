@@ -71,7 +71,7 @@ module.exports = (client) => {
       console.log(table.toString());
       console.log(slashTable.toString());
     } catch (e) {
-      console.log(e);
+      console.log(chalk.yellow("handleCommands :"), e);
     }
   }
 }

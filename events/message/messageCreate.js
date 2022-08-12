@@ -7,18 +7,14 @@ module.exports = {
       if (message.channel.type === 'DM') return;
       if (message.author.bot) return;
       if (!message.content.startsWith(cfg.prefix)) {
-        const thanksMSG = `\`\`\`💡 | Hint: sử dụng ${cfg.prefix}thanks | ${cfg.prefix}ty để cảm ơn người khác\`\`\``;
+        const hint = `\`\`\`💡 | Hint: sử dụng ${cfg.prefix}thanks | ${cfg.prefix}ty để cảm ơn người khác\`\`\``;
         const thanks = ["cảm ơn", "thank", "ty"];
-        thanks.forEach((msg) => {
-          if (message.content.toLowerCase().includes(msg))
-            return message.reply(thanksMSG);
+        thanks.forEach((thank) => {
+          if (message.content.toLowerCase().includes(thank))
+            return message.reply(hint);
         });
-        if (
-          message.content
-            .toLowerCase()
-            .includes("thanks" && !message.content.startsWith(cfg.prefix))
-        )
-          return message.reply(thanksMSG);
+        if (message.content.toLowerCase().includes("thanks" && !message.content.startsWith(cfg.prefix)))
+          return message.reply(hint);
         return;
       };
 
@@ -60,7 +56,7 @@ module.exports = {
 
       await command.execute(message, args, client);
     } catch (error) {
-      console.error(error);
+      console.error(chalk.red("messageCreate"), error);
     };
   }
 }

@@ -18,7 +18,7 @@ module.exports = (client) => {
         rpChannel.send({ embeds: [emReport] });
       }
     } catch (e) {
-      console.error(e);
+      console.error(chalk.yellow("reportEdit: "), e);
     }
   }
 }

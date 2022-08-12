@@ -13,7 +13,7 @@ module.exports = (client) => {
 
       message.reply({ embeds: [embed] });
     } catch (e) {
-      console.error(e);
+      console.error(chalk.yellow("cmdGuide: "), e);
     };
   }
 }

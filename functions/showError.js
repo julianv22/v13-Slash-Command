@@ -15,7 +15,7 @@ module.exports = (client) => {
 
       message.reply({ embeds: [embError] });
     } catch (e) {
-      console.error(e);
+      console.error(chalk.yellow("showError: "), e);
     }
   }
 }

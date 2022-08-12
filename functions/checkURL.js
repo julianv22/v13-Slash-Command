@@ -6,7 +6,7 @@ module.exports = (client) => {
         return (res !== null);
       } else res
     } catch (e) {
-      console.error(e);
+      console.error(chalk.yellow("checkURL: "), e);
     };
   };
 }

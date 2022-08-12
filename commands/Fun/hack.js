@@ -65,5 +65,4 @@ exports.execute = async (message, args, client) => {
   setTimeout(() => { msg.edit(processEnd); }, 4500);
   setTimeout(() => { msg.edit(endText); }, 5500);
   setTimeout(() => { msg.edit(result); }, 6000);
-
 }

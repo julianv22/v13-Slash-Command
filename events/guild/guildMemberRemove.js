@@ -26,7 +26,7 @@ module.exports = {
 
       console.log(chalk.yellow(member.user.tag + " left the server"));
     } catch (error) {
-      console.error(error);
+      console.error("guildMemberRemove: ", error);
     }
   },
 };

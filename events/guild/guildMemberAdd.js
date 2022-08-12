@@ -45,7 +45,7 @@ module.exports = {
 
       console.log(chalk.yellow(member.user.tag + " joined the server"));
     } catch (error) {
-      console.error(error);
+      console.error("guildMemberAdd: ", error);
     }
   },
 };

@@ -29,7 +29,7 @@ module.exports = (client) => {
       console.log(chalk.bgYellow('\n-----------------Starting Client-----------------\n'));
       console.log(eventTable.toString());      
     } catch (e) {
-      console.log(e);
+      console.log(chalk.yellow("handleEvents: "), e);
     }
   }
 }

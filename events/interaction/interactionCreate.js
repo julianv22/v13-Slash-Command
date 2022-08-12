@@ -42,8 +42,8 @@ module.exports = {
 
       await command.execute(interaction, client);
     } catch (error) {
-      console.error(error);
-      return await interaction.reply({ content: `Error: ${error}`, ephemeral: true });
+      console.error(chalk.red("interactionCreate"), error);
+      return await interaction.reply({ content: `Interaction Create Error: ${error}`, ephemeral: true });
     };
   }
 }
