@@ -41,7 +41,7 @@ module.exports = {
         );
 
       await member.guild.channels.cache.get(logID).send({ embeds: [emLog] });
-      client.serverStats(client);
+      client.serverStats(client, member.guild.id);
 
       console.log(chalk.yellow(member.user.tag + " joined the server"));
     } catch (error) {

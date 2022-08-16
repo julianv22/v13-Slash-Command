@@ -26,7 +26,10 @@ module.exports = {
     console.log(chalk.bgYellow('\n-----------------Client Started!-----------------\n'));
 
     // Server Stats
-    client.serverStats(client);
-    setInterval(() => { client.serverStats(client); }, 5 * 60 * 1000);
+    const guildIDs = client.guilds.cache.map((g) => g.id);
+    guildIDs.forEach((id) => {
+      client.serverStats(client, id);
+      setInterval(() => { client.serverStats(client, id) }, 15 * 60 * 1000);
+    });
   }
 }
