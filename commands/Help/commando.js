@@ -7,13 +7,10 @@ exports.description = `⤷Danh sách Slash Command\n\nAlias: \`${exports.aliases
 exports.usage = `\`${cfg.prefix}${exports.name}\``;
 
 exports.execute = async (message, args, client) => {
+  const isAdmin = message.member.permissions.has("ADMINISTRATOR");
+
   if (args.join(" ").trim() === "?")
-    return client.cmdGuide(
-      message,
-      exports.name,
-      exports.description,
-      exports.usage
-    );
+    return client.cmdGuide(message, exports.name, exports.description, exports.usage);
 
   const cmdCategories = await client.slashCommands.map((cmd) => cmd.category);
   const catFilter = await cmdCategories.filter(
@@ -37,9 +34,13 @@ exports.execute = async (message, args, client) => {
       .filter((cmd) => cmd.category === cat);
     const cmds = await commands
       .map((cmd) => {
-        return `⤷[${cmd.data.name}]⟶ ${cmd.data.description}`;
-      })
-      .join("\n");
+        if (isAdmin) {
+          return `⤷[${cmd.data.name}]⟶ ${cmd.data.description}`;
+        } else {
+          if (!cmd.data.description.includes(cfg.adminRole))
+            return `⤷[${cmd.data.name}]⟶ ${cmd.data.description}`;
+        }
+      }).join("\n");
 
     embed.addField(
       `${cfg.folder} ${cat.toUpperCase()} [${commands.length}]`,

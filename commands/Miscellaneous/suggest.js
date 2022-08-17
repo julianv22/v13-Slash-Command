@@ -26,10 +26,7 @@ exports.execute = async (message, args, client) => {
   let channelProfile = await serverProfile.findOne({ guildID: message.guild.id });
   if (!channelProfile) {
     let createOne = await serverProfile.create(
-      {
-        guildID: message.guild.id,
-        guildName: message.guild.name,
-      });
+      { guildID: message.guild.id, guildName: message.guild.name, });
     createOne.save();
   }
 
@@ -70,7 +67,7 @@ exports.execute = async (message, args, client) => {
     //Check Permission
     if (!isAdmin)
       return message.reply(`\`\`\`${cfg.x} | Bạn không phải Admin để sử dụng command này!\`\`\``);
-    
+
     const setChannel = await client.channels.cache.get(sgtSet[1] || message.channel.id);
     if (setChannel === undefined) { //Check Channel ID
       return message.reply(`\`\`\`${cfg.x} | ID channel không đúng hoặc chưa chính xác\`\`\``);

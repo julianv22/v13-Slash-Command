@@ -74,13 +74,10 @@ exports.execute = async (message, args, client) => {
         {
           name: `Roles [${member.roles.cache
             .filter((r) => r.id !== message.guild.id)
-            .map((roles) => `\`${roles.name}\``).length
-            }]`,
+            .map((roles) => `\`${roles.name}\``).length}]`,
           value: `${member.roles.cache
             .filter((r) => r.id !== message.guild.id)
-            .map((roles) => `<@&${roles.id}>`)
-            .join(' ') || "No Roles"
-            }`
+            .map((roles) => `<@&${roles.id}>`).join(' ') || "No Roles"}`
         },
       )
     message.reply({ embeds: [embed] });

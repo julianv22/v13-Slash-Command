@@ -7,6 +7,8 @@ module.exports = {
     .setDescription("Slash Commands (/) List"),
   category: "help",
   async execute(interaction, client) {
+    const isAdmin = interaction.member.permissions.has("ADMINISTRATOR");
+
     const cmdCategories = await client.slashCommands.map((cmd) => cmd.category);
     const catFilter = await cmdCategories.filter(
       (item, index) => cmdCategories.indexOf(item) === index
@@ -28,7 +30,12 @@ module.exports = {
         .filter((cmd) => cmd.category === cat);
       const cmds = await commands
         .map((cmd) => {
-          return `⤷[${cmd.data.name}]⟶ ${cmd.data.description}`;
+          if (isAdmin) {
+            return `⤷[${cmd.data.name}]⟶ ${cmd.data.description}`;
+          } else {
+            if (!cmd.data.description.includes(cfg.adminRole))
+              return `⤷[${cmd.data.name}]⟶ ${cmd.data.description}`;
+          }
         })
         .join("\n");
 

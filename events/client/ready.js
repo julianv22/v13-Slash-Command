@@ -17,19 +17,34 @@ module.exports = {
 
     table.addRow(`${client.user.tag}\u200b\u200b`, '', `${cfg.v}\u200b`);
 
-    for (const file of funcFiles)
-      table.addRow('', file.split('.js')[0], `${cfg.v}\u200b`);
+    const clientRows = [
+      '',
+      `ID: ${cfg.botID}`,
+      '',
+      `Prefix: ${cfg.prefix}`,
+      '',
+      'Support Server:',
+      '',
+      `${cfg.supportServer}\u200b\u200b`,
+    ];
+    let i = 0;
+    for (const file of funcFiles) {
+      let column = clientRows[i]
+      table.addRow(column, file.split('.js')[0], `${cfg.v}\u200b`);
+      i++;
+      if (i > clientRows.size) column = '';
+    };
 
     table.addRow(`Client Ready!`, '', `${cfg.v}\u200b`);
 
     console.log(table.toString());
-    console.log(chalk.bgYellow('\n-----------------Client Started!-----------------\n'));
+    console.log(chalk.bgYellow.bold('\n-----------------Client Started!-----------------\n'));
 
     // Server Stats
     const guildIDs = client.guilds.cache.map((g) => g.id);
     guildIDs.forEach((id) => {
       client.serverStats(client, id);
-      setInterval(() => { client.serverStats(client, id) }, 15 * 60 * 1000);
+      setInterval(() => { client.serverStats(client, id) }, 5 * 60 * 1000);
     });
   }
 }

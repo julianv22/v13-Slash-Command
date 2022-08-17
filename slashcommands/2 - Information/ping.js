@@ -1,4 +1,5 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
+const { MessageEmbed } = require('discord.js')
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -6,12 +7,18 @@ module.exports = {
     .setDescription('Ping pong!'),
   category: "information",
   async execute(interaction, client) {
-    const message = await interaction.deferReply({
-      fetchReply: true
-    });
-    const msg = `**⏱ | Ping:** *${client.ws.ping} / *${message.createdTimestamp - interaction.createdTimestamp}ms*`;
-    await interaction.editReply({
-      content: msg
-    });
+    const ping = client.ws.ping;
+    const delay = Date.now() - interaction.createdTimestamp;
+    let color = 'RANDOM';
+
+    if (ping < 101) color = 'GREEN'
+    else if (ping > 100 && ping < 301) color = 'ORANGE'
+    else color = 'RED'
+
+    const embed = new MessageEmbed()
+      .setColor(color)
+      .setDescription(`**⏱ | Ping:** ${ping} / *${delay}ms*`)
+
+    await interaction.reply({ embeds: [embed] });
   }
 }

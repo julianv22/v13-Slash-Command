@@ -20,10 +20,7 @@ exports.execute = async (message, args, client) => {
   let channelProfile = await serverProfile.findOne({ guildID: message.guild.id });
   if (!channelProfile) {
     let createOne = await serverProfile.create(
-      {
-        guildID: message.guild.id,
-        guildName: message.guild.name,
-      });
+      { guildID: message.guild.id, guildName: message.guild.name, });
     createOne.save();
   }
 

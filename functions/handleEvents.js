@@ -26,7 +26,7 @@ module.exports = (client) => {
       };
       eventTable.setTitle(`Load Events [${count}]`);     
 
-      console.log(chalk.bgYellow('\n-----------------Starting Client-----------------\n'));
+      console.log(chalk.bgYellow.bold('\n-----------------Starting Client-----------------\n'));
       console.log(eventTable.toString());      
     } catch (e) {
       console.log(chalk.yellow("handleEvents: "), e);

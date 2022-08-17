@@ -51,7 +51,7 @@ global.slashcmdFolder = fs.readdirSync('./slashcommands');
 
   // CLIENT LOGIN
   mongoose.connect(process.env.mongodb, (err) => {
-    console.log(chalk.green(`\n${cfg.v} [ Connected to mongodb ]`) + chalk.red(`\n${cfg.x} [ Error ]: `), err || '0');
+    console.log(chalk.green.bold(`\n${cfg.v} [ Connected to mongodb ]`) + chalk.red.bold(`\n${cfg.x} [ Error ]: `), err || '0');
   })
   client.login(process.env.token).catch(e => console.log(e));
 })();

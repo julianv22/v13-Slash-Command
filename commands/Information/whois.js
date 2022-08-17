@@ -42,13 +42,10 @@ exports.execute = async (message, args, client) => {
     .addField(
       `Vai trò [${member.roles.cache
         .filter((r) => r.id !== message.guild.id)
-        .map((roles) => `\`${roles.name}\``).length
-      }]`,
+        .map((roles) => `\`${roles.name}\``).length}]`,
       `${member.roles.cache
         .filter((r) => r.id !== message.guild.id)
-        .map((roles) => `<@&${roles.id}>`)
-        .join(" ") || "No Roles"
-      }`
+        .map((roles) => `<@&${roles.id}>`).join(" ") || "No Roles"}`
     )
     .setFooter(`Requested by ${message.member.user.tag}`, `${message.member.displayAvatarURL(true)}`)
     .setTimestamp()
