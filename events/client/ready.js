@@ -42,6 +42,7 @@ module.exports = {
 
     // Server Stats
     const guildIDs = client.guilds.cache.map((g) => g.id);
+    console.log(chalk.magenta.bold(`Working in ${guildIDs.length} guilds:`), guildIDs)
     guildIDs.forEach((id) => {
       client.serverStats(client, id);
       setInterval(() => { client.serverStats(client, id) }, 5 * 60 * 1000);
