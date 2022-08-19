@@ -1,12 +1,5 @@
-const { MessageEmbed, MessageButton } = require("discord.js");
-const {
-  InteractionPagination,
-  NextPageButton,
-  PreviousPageButton,
-  StopButton,
-  FirstPageButton,
-  LastPageButton,
-} = require("djs-button-pages");
+const { MessageEmbed } = require("discord.js");
+const { InteractionPagination } = require("djs-button-pages");
 const { SlashCommandBuilder } = require("@discordjs/builders");
 
 module.exports = {
@@ -49,18 +42,6 @@ module.exports = {
       pages.push(embed);
     });
 
-    const buttons = [
-      new FirstPageButton(new MessageButton().setCustomId("first").setLabel("◀◀").setStyle("SUCCESS")),
-      new PreviousPageButton(new MessageButton().setCustomId("prev").setLabel("◀").setStyle("PRIMARY")),
-      new StopButton(new MessageButton().setCustomId("stop").setLabel("❌").setStyle("DANGER")),
-      new NextPageButton(new MessageButton().setCustomId("next").setLabel("▶").setStyle("PRIMARY")),
-      new LastPageButton(new MessageButton().setCustomId("last").setLabel("▶▶").setStyle("SUCCESS")),
-    ];
-
-    const pagination = new InteractionPagination()
-      .setButtons(buttons)
-      .setEmbeds(pages)
-      .setTime(60 * 1000);
-    await pagination.send(interaction);
+    client.djsButtonPages(pages, InteractionPagination, null, interaction, true);
   },
 };

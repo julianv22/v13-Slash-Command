@@ -9,7 +9,7 @@ module.exports = {
         type: cfg.statustype[index],
         url: cfg.youtube
       });
-    }, 1000 * 60 * 5);
+    }, 5 * 60 * 1000);
 
     const table = new ascii()
       .setTitle(`Login Client & Load Functions`)
@@ -41,11 +41,11 @@ module.exports = {
     console.log(chalk.bgYellow.bold('\n-----------------Client Started!-----------------\n'));
 
     // Server Stats
-    const guildIDs = client.guilds.cache.map((g) => g.id);
-    console.log(chalk.magenta.bold(`Working in ${guildIDs.length} guilds:`), guildIDs)
-    guildIDs.forEach((id) => {
-      client.serverStats(client, id);
-      setInterval(() => { client.serverStats(client, id) }, 5 * 60 * 1000);
+    const guilds = client.guilds.cache.map(g => g);
+    console.log(chalk.magenta.bold(`Working in ${guilds.length} servers:`), guilds.map(g => g.name))
+    guilds.forEach((guild) => {
+      client.serverStats(client, guild.id);
+      setInterval(() => { client.serverStats(client, guild.id) }, 5 * 60 * 1000);
     });
   }
 }
