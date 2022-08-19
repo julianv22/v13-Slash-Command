@@ -14,8 +14,11 @@ module.exports = (client) => {
       if (!profile?.totalChannel || !profile?.statsChannel) return;
 
       const memberRole = await guild.roles.cache.get(profile?.memberRole).name;
-      const memberCount = await guild.members.cache
-        .filter((m) => !m.user.bot).size.toLocaleString();
+      const memberCount = await guild.roles.cache
+        .get(profile?.memberRole)
+        .members.map((m) => m.user)
+        .length.toLocaleString();
+      // await guild.members.cache.filter((m) => !m.user.bot).size.toLocaleString();
 
       const botRole = await guild.roles.cache.get(profile?.botRole).name;
       const botCount = await guild.members.cache.filter((m) => m.user.bot).size.toLocaleString();

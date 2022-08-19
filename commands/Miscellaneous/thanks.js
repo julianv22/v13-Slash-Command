@@ -39,8 +39,9 @@ exports.execute = async (message, args, client) => {
     return message.reply(`\`\`\`❌ | Bạn không thể cảm ơn chính mình 😅!\`\`\``);
 
   // Finde thanksCount 
-  const thanksCount = await serverThanks.findOne({ guildID: message.guild.id, userID: member.id });
-  const stDate = moment(Date.now()).tz('Asia/Ho_Chi_Minh').format("HH:mm, dddd - DD/MM/YYYY")
+  const dateNow = moment(Date.now()).tz('Asia/Ho_Chi_Minh').format("HH:mm, dddd - DD/MM/YYYY")
+  
+  const thanksCount = await serverThanks.findOne({ guildID: message.guild.id, userID: member.id });  
   if (!thanksCount) {
     let createOne = await serverThanks.create({
       guildID: message.guild.id,
@@ -48,13 +49,13 @@ exports.execute = async (message, args, client) => {
       userID: member.id,
       usertag: member.user.tag,
       count: 1,
-      lastThanks: stDate
+      lastThanks: dateNow
     });
     createOne.save()
   }
   let lastThanks;
   if (thanksCount?.lastThanks) lastThanks = thanksCount?.lastThanks
-  else lastThanks = stDate
+  else lastThanks = dateNow
 
   const embed = new MessageEmbed()
     .setAuthor({
@@ -64,7 +65,7 @@ exports.execute = async (message, args, client) => {
     .setTitle("💖 | Special thanks!")
     .setDescription(`${user} đã gửi lời cảm ơn tới ${member}!`)
     .addField(`Số lần được cảm ơn: [${thanksCount?.count + 1 || 1}]`, `\u200b`, true)
-    .addField('Lần cuối được cảm ơn:', `${lastThanks}`, true)
+    .addField('Lần cuối được cảm ơn:', lastThanks, true)
     .setFooter({
       text: `Sử dụng ${cfg.prefix}${exports.name} | ${cfg.prefix}${exports.aliases} để cảm ơn người khác`,
       iconURL: message.guild.iconURL(true)
@@ -83,6 +84,6 @@ exports.execute = async (message, args, client) => {
       guildName: message.guild.name,
       usertag: member.user.tag,
       count: thanksCount?.count + 1 || 1,
-      lastThanks: stDate,
+      lastThanks: dateNow,
     });
 }
