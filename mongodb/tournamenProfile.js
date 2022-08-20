@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 const tournamenProfile = new mongoose.Schema({
-  guildID: { type: String, require: true },
+  guildID: { type: String, required: true },
   guildName: { type: String },
-  userID: { type: String, require: true },
+  userID: { type: String, required: true },
   usertag: { type: String },
   ingame: { type: String },
   decklist: { type: String },

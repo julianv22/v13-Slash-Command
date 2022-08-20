@@ -1,8 +1,8 @@
 const { MessageEmbed } = require("discord.js");
 const { MessageReplyPagination } = require("djs-button-pages");
 
-exports.name = "commando";
-exports.aliases = ["cmd"];
+exports.name = "slashcommand";
+exports.aliases = ["scmd"];
 exports.category = "help";
 exports.description = `⤷Danh sách Slash Command\n\nAlias: \`${exports.aliases}\``;
 exports.usage = `\`${cfg.prefix}${exports.name}\``;

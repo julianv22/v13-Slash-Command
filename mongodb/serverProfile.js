@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const serverProfile = new mongoose.Schema({
-  guildID: { type: String, require: true, unique: true },
+  guildID: { type: String, required: true, unique: true },
   guildName: { type: String },
   reportChannel: { type: String },
   updateChannel: { type: String },
