@@ -24,7 +24,7 @@ module.exports = (client) => {
       const pagination = new method()
         .setButtons(buttons)
         .setEmbeds(pages)
-        .setTime(60 * 1000);
+        .setTime(5 * 60 * 1000);
       if (ephemeral) pagination.setMessageOptions({ ephemeral: true });
 
       if (message) await pagination.send(message);

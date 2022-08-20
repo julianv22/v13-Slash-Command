@@ -14,6 +14,7 @@ module.exports = {
   async execute(interaction, client) {
     const user = interaction.options.getUser("user");
     const guild = interaction.guild;
+    
     const imgURL = [
       "https://cdn.discordapp.com/attachments/976364997066231828/987822146279587850/unknown.png",
       "https://media.discordapp.net/attachments/976364997066231828/988317420106174484/unknown.png",
@@ -54,37 +55,28 @@ module.exports = {
         lastThanks: Date.now(),
       });
       createOne.save();
-    }
+    };
 
     let lastThanks;
     if (thanksCount?.lastThanks) lastThanks = thanksCount?.lastThanks
-    else lastThanks = dateNow
+    else lastThanks = dateNow;
 
     const embed = new MessageEmbed()
-      .setAuthor({
-        name: interaction.user.username,
-        iconURL: interaction.user.displayAvatarURL(true),
-      })
+      .setAuthor({ name: interaction.user.username, iconURL: interaction.user.displayAvatarURL(true) })
       .setTitle("💖 | Special thanks!")
       .setDescription(`${interaction.user} special thanks to ${user}!`)
       .addField(`Thanks count: [${thanksCount?.count + 1 || 1}]`, `\u200b`, true)
       .addField("Last thanks:", lastThanks, true)
-      .setFooter({
-        text: `Use /thanks to thank someone`,
-        iconURL: guild.iconURL(true),
-      })
+      .setFooter(`Use /thanks to thank someone`, guild.iconURL(true))
       .setTimestamp()
       .setColor(cfg.embedcolor)
-      .setImage(`${imgURL[Math.floor(Math.random() * imgURL.length)]}`);
+      .setImage(imgURL[Math.floor(Math.random() * imgURL.length)]);
 
     interaction.reply({ embeds: [embed] });
 
     // Update thanksCount
     await serverThanks.findOneAndUpdate(
-      {
-        guildID: guild.id,
-        userID: user.id,
-      },
+      { guildID: guild.id, userID: user.id, },
       {
         guildName: guild.name,
         usertag: user.tag,

@@ -27,25 +27,27 @@ exports.execute = async (message, args, client) => {
     "https://png.pngtree.com/thumb_back/fw800/background/20201020/pngtree-rose-thank-you-background-image_425104.jpg",
   ];
 
-  const user = message.author;
+  const guild = message.guild;
+  const author = message.author;
   const member = message.mentions.members.first();
+
   if (!member)
     return message.reply(`\`\`\`❌ | Bạn phải @ một ai đó!\`\`\``);
 
   if (member.user.bot)
     return message.reply(`\`\`\`❌ | Bot không cần cảm ơn 😝!\`\`\``);
 
-  if (member.id === message.author.id)
+  if (member.id === author.id)
     return message.reply(`\`\`\`❌ | Bạn không thể cảm ơn chính mình 😅!\`\`\``);
 
   // Finde thanksCount 
   const dateNow = moment(Date.now()).tz('Asia/Ho_Chi_Minh').format("HH:mm, dddd - DD/MM/YYYY")
-  
-  const thanksCount = await serverThanks.findOne({ guildID: message.guild.id, userID: member.id });  
+
+  const thanksCount = await serverThanks.findOne({ guildID: guild.id, userID: member.id });
   if (!thanksCount) {
     let createOne = await serverThanks.create({
-      guildID: message.guild.id,
-      guildName: message.guild.name,
+      guildID: guild.id,
+      guildName: guild.name,
       userID: member.id,
       usertag: member.user.tag,
       count: 1,
@@ -58,30 +60,24 @@ exports.execute = async (message, args, client) => {
   else lastThanks = dateNow
 
   const embed = new MessageEmbed()
-    .setAuthor({
-      name: user.username,
-      iconURL: user.displayAvatarURL(true)
-    })
+    .setAuthor({ name: author.username, iconURL: author.displayAvatarURL(true) })
     .setTitle("💖 | Special thanks!")
-    .setDescription(`${user} đã gửi lời cảm ơn tới ${member}!`)
+    .setDescription(`${author} đã gửi lời cảm ơn tới ${member}!`)
     .addField(`Số lần được cảm ơn: [${thanksCount?.count + 1 || 1}]`, `\u200b`, true)
     .addField('Lần cuối được cảm ơn:', lastThanks, true)
     .setFooter({
       text: `Sử dụng ${cfg.prefix}${exports.name} | ${cfg.prefix}${exports.aliases} để cảm ơn người khác`,
-      iconURL: message.guild.iconURL(true)
+      iconURL: guild.iconURL(true)
     })
     .setTimestamp()
     .setColor(cfg.embedcolor)
-    .setImage(`${imgURL[Math.floor(Math.random() * imgURL.length)]}`)
+    .setImage(imgURL[Math.floor(Math.random() * imgURL.length)])
   message.reply({ embeds: [embed] });
   // Update thanksCount
   await serverThanks.findOneAndUpdate(
+    { guildID: guild.id, userID: member.id },
     {
-      guildID: message.guild.id,
-      userID: member.id
-    },
-    {
-      guildName: message.guild.name,
+      guildName: guild.name,
       usertag: member.user.tag,
       count: thanksCount?.count + 1 || 1,
       lastThanks: dateNow,
